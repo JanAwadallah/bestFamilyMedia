@@ -33,7 +33,7 @@ const FeedbackItem = () => {
                     // height: "auto",
                   }}
                   src={
-                    "https://backend.canaofgalilee.oo.gd/images/" +
+                    process.env +
                     item.filename
                   }
                   alt="new"
