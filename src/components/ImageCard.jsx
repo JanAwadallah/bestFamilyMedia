@@ -18,7 +18,7 @@ const FeedbackItem = () => {
     <div>
       <Upload setUploaded={setUploaded} />
       <div className="cardIMG">
-        {images && <h1>{images.length}</h1>}
+        {images && <h1>{images[0].filename} and {images[1].filename}</h1>}
       </div>
     </div>
   );
