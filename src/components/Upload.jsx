@@ -17,9 +17,13 @@ const Upload = ({ setUploaded }) => {
         try {
          
           await axios.post(process.REACT_APP_UPLOAD, data);
-          console.log(before);
+          
           setUploaded(true);
-        } catch (err) {}
+        } catch (err) {
+          console.log("error");
+          console.log(err)
+          
+        }
       }
     }
   };
