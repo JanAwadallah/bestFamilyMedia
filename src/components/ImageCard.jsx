@@ -19,7 +19,7 @@ const FeedbackItem = () => {
       <Upload setUploaded={setUploaded} />
       <div className="cardIMG">
         {images &&
-         for(let i=0; i< images.length; i++){ 
+         (for(let i=0; i< images.length; i++){ 
             <div className="img-container">
               {["image/jpg", "image/jpeg", "image/png"].includes(images[i].type) ? (
                 <img
@@ -48,7 +48,7 @@ const FeedbackItem = () => {
                 />
               )}
             </div>
-}}
+})}
       </div>
     </div>
   );
