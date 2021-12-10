@@ -6,7 +6,7 @@ const Upload = ({ setUploaded }) => {
     const files = e.target.files;
     if (files) {
       for (let i = 0; i < files.length; i++) {
-        const url = process.REACT_APP_UPLOAD;
+        
         const data = new FormData();
         const filename = Date.now() + files[i].name;
         const type = files[i].type;
@@ -14,7 +14,7 @@ const Upload = ({ setUploaded }) => {
         data.append("type", type);
         data.append("file", files[i]);
         try {
-          await axios.post(url, data);
+          await axios.post(process.REACT_APP_UPLOAD, data);
           setUploaded(true);
         } catch (err) {}
       }
