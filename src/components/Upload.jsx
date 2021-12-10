@@ -15,7 +15,7 @@ const Upload = ({ setUploaded }) => {
         data.append("type", type);
         data.append("file", files[i]);
         try {
-          console.log(before);
+         
           await axios.post(process.REACT_APP_UPLOAD, data);
           console.log(before);
           setUploaded(true);
