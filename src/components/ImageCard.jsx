@@ -12,13 +12,15 @@ const FeedbackItem = () => {
   };
   useEffect(() => {
     fetchImages();
+    
   }, [uploaded]);
+  console.log(images)
 
   return (
     <div>
       <Upload setUploaded={setUploaded} />
       <div className="cardIMG">
-        {images && <h1>{images[0].filename} and {images[1].filename}</h1>}
+        {images && <h1>Test</h1>}
       </div>
     </div>
   );
