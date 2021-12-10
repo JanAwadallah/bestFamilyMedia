@@ -16,7 +16,7 @@ const Upload = ({ setUploaded }) => {
         data.append("file", files[i]);
         try {
          
-          await axios.post(process.REACT_APP_UPLOAD, data);
+          await axios.post("https://backend.canaofgalilee.oo.gd/upload", data);
           
           setUploaded(true);
         } catch (err) {
