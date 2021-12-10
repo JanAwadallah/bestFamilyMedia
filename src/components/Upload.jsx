@@ -6,6 +6,7 @@ const Upload = ({ setUploaded }) => {
     const files = e.target.files;
     if (files) {
       for (let i = 0; i < files.length; i++) {
+        const url = process.env.REACT_APP_BACKEND + "/fetchimages";
         const data = new FormData();
         const filename = Date.now() + files[i].name;
         const type = files[i].type;
@@ -13,7 +14,7 @@ const Upload = ({ setUploaded }) => {
         data.append("type", type);
         data.append("file", files[i]);
         try {
-          await axios.post(process.env.BACKEND+"/upload", data);
+          await axios.post(url, data);
           setUploaded(true);
         } catch (err) {}
       }
