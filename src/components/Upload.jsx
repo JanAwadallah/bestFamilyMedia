@@ -13,7 +13,7 @@ const Upload = ({ setUploaded }) => {
         data.append("type", type);
         data.append("file", files[i]);
         try {
-          await axios.post("/upload", data);
+          await axios.post(process.env.BACKEND+"/upload", data);
           setUploaded(true);
         } catch (err) {}
       }
