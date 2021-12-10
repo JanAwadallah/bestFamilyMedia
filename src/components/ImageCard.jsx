@@ -7,7 +7,7 @@ const FeedbackItem = () => {
   const [images, setImages] = useState([]);
   const [uploaded, setUploaded] = useState(false);
   const fetchImages = async () => {
-    const url = process.env.REACT_APP_BACKEND + "/fetchimages";
+    const url = process.env.REACT_APP_FETCHIMAGES;
     console.log(url)
     const res = await axios.get(url);
     setImages(res.data);
