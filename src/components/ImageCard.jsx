@@ -19,11 +19,11 @@ const FeedbackItem = () => {
       <Upload setUploaded={setUploaded} />
       <div className="cardIMG">
         {images &&
-         (for(let i=0; i< images.length; i++){ 
+          images.map((item) => (
             <div className="img-container">
-              {["image/jpg", "image/jpeg", "image/png"].includes(images[i].type) ? (
+              {["image/jpg", "image/jpeg", "image/png"].includes(item.type) ? (
                 <img
-                  key={images[i]._id}
+                  key={item._id}
                   style={{
                     // margin: "5%",
                     // display: "block",
@@ -32,23 +32,20 @@ const FeedbackItem = () => {
                     // width: "auto",
                     // height: "auto",
                   }}
-                  src={
-                    process.env +
-                    images[i].filename
-                  }
+                  src={process.env + item.filename}
                   alt="new"
                 />
               ) : (
                 <Player
                   style={{ maxWidth: "100%" }}
-                  key={images[i]._id}
+                  key={item._id}
                   playsInline
                   // poster="/assets/poster.png"
-                  src={process.env + images[i].filename}
+                  src={process.env + item.filename}
                 />
               )}
             </div>
-})}
+          ))}
       </div>
     </div>
   );
