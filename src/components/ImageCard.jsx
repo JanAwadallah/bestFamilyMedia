@@ -7,7 +7,7 @@ const FeedbackItem = () => {
   const [images, setImages] = useState([]);
   const [uploaded, setUploaded] = useState(false);
   const fetchImages = async () => {
-    const res = await axios.get("/fetchimages");
+    const res = await axios.get("https://backend.canaofgalilee.oo.gd/fetchimages");
     setImages(res.data);
   };
   useEffect(() => {
