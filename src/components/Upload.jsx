@@ -4,10 +4,10 @@ import axios from "axios";
 const Upload = ({ setUploaded }) => {
   const fileInputHandler = async (e) => {
     const files = e.target.files;
-    console.log(files);
+   
     if (files) {
       for (let i = 0; i < files.length; i++) {
-        
+         console.log(files[i]);
         const data = new FormData();
         const filename = Date.now() + files[i].name;
         const type = files[i].type;
