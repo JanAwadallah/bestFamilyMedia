@@ -6,7 +6,7 @@ const Upload = ({ setUploaded }) => {
     const files = e.target.files;
     if (files) {
       for (let i = 0; i < files.length; i++) {
-        const url = process.env.REACT_APP_BACKEND + "/fetchimages";
+        const url = process.REACT_APP_UPLOAD;
         const data = new FormData();
         const filename = Date.now() + files[i].name;
         const type = files[i].type;
