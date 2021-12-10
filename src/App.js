@@ -7,7 +7,7 @@ const App = () => {
     <>
       <Header title="Best Family Ever media gallery" />
       <div className="container">
-    <h1>test</h1>
+      <FeedbackItem />
       
       </div>
     </>
