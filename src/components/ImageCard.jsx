@@ -54,6 +54,7 @@ const FeedbackItem = () => {
                     style={{
                       width: "100%",
                     }}
+                    effect="black-and-white"
                     src={process.env.REACT_APP_LINK + item.filename}
                     alt="new"
                     onClick={() =>
