@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Player } from "video-react";
 import Upload from "./Upload";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import CloseIcon from "@material-ui/icons/Close";
 import Slider from "./Slider";
 const FeedbackItem = () => {
