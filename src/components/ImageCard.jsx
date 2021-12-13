@@ -29,8 +29,7 @@ const FeedbackItem = () => {
     setTempIndex(index);
   };
 
-  return (
-    <>
+  return (   <>
       <Slider
         setModel={setModel}
         images={images}
@@ -43,42 +42,30 @@ const FeedbackItem = () => {
 
       <div>
         <Upload setUploaded={setUploaded} />
+
         <div className="cardIMG">
-          {images &&
-            images.map((item, index) => {
-              return (
-                <div className="img-container">
-                  {["image/jpg", "image/jpeg", "image/png"].includes(
-                    item.type
-                  ) ? (
-                    <img
-                      key={item._id}
-                      style={{
-                        width: "100%",
-                      }}
-                      src={process.env.REACT_APP_LINK + item.filename}
-                      alt="new"
-                      onClick={() =>
-                        getImg(
-                          process.env.REACT_APP_LINK + item.filename,
-                          item.type,
-                          index
-                        )
-                      }
-                    />
-                  ) : (
-                    <div style={{ marginBottom: 6 }}>
-                      <Player
-                        style={{ width: "100%" }}
-                        key={item._id}
-                        playsInline
-                        src={process.env.REACT_APP_LINK + item.filename}
-                      />
-                    </div>
-                  )}
-                </div>
-              );
-            })}
+          <div className="img-container">
+            {images &&
+              images.map((item, index) => {
+                return (
+                  <LazyLoadImage
+                    key={item._id}
+                    style={{
+                      width: "100%",
+                    }}
+                    src={process.env.REACT_APP_LINK + item.filename}
+                    alt="new"
+                    onClick={() =>
+                      getImg(
+                        process.env.REACT_APP_LINK + item.filename,
+                        item.type,
+                        index
+                      )
+                    }
+                  />
+                );
+              })}
+          </div>
         </div>
       </div>
     </>
