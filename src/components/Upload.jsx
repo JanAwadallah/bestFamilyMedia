@@ -23,7 +23,7 @@ const Upload = ({ setUploaded }) => {
     }
 
     fileUploadHandler(compressedFiles);
-    setUploaded(true)
+   
   }
   const fileUploadHandler = async (arr) => {
     if (arr) {
@@ -40,6 +40,7 @@ const Upload = ({ setUploaded }) => {
           console.log(err);
         }
       }
+       setUploaded(true)
     }
   };
   return (
