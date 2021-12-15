@@ -39,8 +39,9 @@ const Upload = ({ setUploaded }) => {
         } catch (err) {
           console.log(err);
         }
+        setUploaded(true);
       }
-       setUploaded(true)
+       
     }
   };
   return (
