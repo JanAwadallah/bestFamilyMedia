@@ -23,7 +23,7 @@ const Upload = ({ setUploaded }) => {
     }
 
     fileUploadHandler(compressedFiles);
-    console.log(compressedFiles);
+    setUploaded(true)
   }
   const fileUploadHandler = async (arr) => {
     if (arr) {
