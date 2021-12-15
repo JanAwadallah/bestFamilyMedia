@@ -15,7 +15,7 @@ const Upload = ({ setUploaded }) => {
     try {
       for (let i = 0; i < imageFiles.length; i++) {
         const compressedFile = await imageCompression(imageFiles[i], options);
-        console.log(compressedFile);
+ 
         compressedFiles.push(compressedFile);
       }
     } catch (error) {
@@ -39,10 +39,12 @@ const Upload = ({ setUploaded }) => {
         } catch (err) {
           console.log(err);
         }
-        setUploaded(true);
+       
       }
        
     }
+        setUploaded(true);
+
   };
   return (
     <div>
