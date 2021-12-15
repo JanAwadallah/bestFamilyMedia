@@ -1,33 +1,47 @@
 import React from "react";
 import axios from "axios";
+import imageCompression from "browser-image-compression";
 
 const Upload = ({ setUploaded }) => {
-  const fileInputHandler = async (e) => {
-    const files = e.target.files;
-   
-    if (files) {
-      for (let i = 0; i < files.length; i++) {
-         
+  async function handleImageUpload(event) {
+    const compressedFiles = [];
+    const options = {
+      maxSizeMB: 1,
+      maxWidthOrHeight: 1920,
+      useWebWorker: true,
+    };
+    const imageFiles = event.target.files;
+
+    try {
+      for (let i = 0; i < imageFiles.length; i++) {
+        const compressedFile = await imageCompression(imageFiles[i], options);
+        console.log(compressedFile);
+        compressedFiles.push(compressedFile);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+
+    fileUploadHandler(compressedFiles);
+    console.log(compressedFiles);
+  }
+  const fileUploadHandler = async (arr) => {
+    if (arr) {
+      for (let i = 0; i < arr.length; i++) {
         const data = new FormData();
-        const filename = Date.now() + files[i].name;
-        const type = files[i].type;
+        const filename = Date.now() + arr[i].name;
+        const type = arr[i].type;
         data.append("name", filename);
         data.append("type", type);
-        data.append("file", files[i]);
+        data.append("file", arr[i]);
         try {
-         
           await axios.post(process.env.REACT_APP_UPLOAD, data);
-          
-          setUploaded(true);
         } catch (err) {
-          console.log("error");
-          console.log(err)
-          
+          console.log(err);
         }
       }
     }
   };
-
   return (
     <div>
       <form>
@@ -39,7 +53,7 @@ const Upload = ({ setUploaded }) => {
           type="file"
           multiple
           style={{ display: "none" }}
-          onChange={fileInputHandler}
+          onChange={(event) => handleImageUpload(event)}
         />
       </form>
     </div>
