@@ -6,8 +6,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import CloseIcon from "@material-ui/icons/Close";
 import Slider from "./Slider";
 import Loading from "./Loading";
-
-
+import { FaAngleDoubleRight, FaAngleDoubleLeft, FaTimes } from "react-icons/fa";
 
 
 
@@ -21,6 +20,7 @@ const FeedbackItem = () => {
   const [tempType, setTempType] = useState("");
   const [tempIndex, setTempIndex] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(1);
   
   const fetchImages = async () => {
     const res = await axios.get(process.env.REACT_APP_FETCHIMAGES);
@@ -55,7 +55,26 @@ const FeedbackItem = () => {
         length={length}
         setTempIndex={setTempIndex}
       />
-
+<div
+                style={{
+                  display: "flex",
+                  position: "relative",
+                  justifyContent: "space-between",
+                  columnSpan: "all",
+                }}
+              >
+                <FaAngleDoubleLeft
+                  className="prevPage"
+                  onClick={() => {
+                    console.log(page);
+                    setPage(page > 1 ? page - 1 : page);
+                  }}
+                />
+                <FaAngleDoubleRight
+                  className="nextPage"
+                  onClick={() => setPage(length > 0 ? page + 1 : page)}
+                />
+              </div>
       <div>
         <Upload setUploaded={setUploaded} />
 
@@ -86,6 +105,20 @@ const FeedbackItem = () => {
         </div>
       </div>
  </>
+      )}
+       {length === 0 && (
+        <h2
+          style={{
+            textAlign: "center",
+            columnSpan: "all",
+            // position: "fixed",
+            top: "30%",
+            left: 0,
+            margin: 30,
+          }}
+        >
+          No more images here! please upload more if you have
+        </h2>
       )}
     </>
   );
