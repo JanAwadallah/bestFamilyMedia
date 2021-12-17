@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import FeedbackItem from "./components/ImageCard";
 import Header from "./components/Header";
 
 const App = () => {
+  const [loading, setLoading] = useState(true);
   return (
     <>
       <Header title="Best Family Ever media gallery" />
+     {loading && <Loading />}
       <div className="container">
       <FeedbackItem />
       
