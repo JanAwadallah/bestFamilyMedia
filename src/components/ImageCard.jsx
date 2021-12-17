@@ -21,9 +21,13 @@ const FeedbackItem = () => {
   const [tempIndex, setTempIndex] = useState(0);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
+  const [imagesCount, setImagesCount] = useState(0);
+  const [currentCount, setCurrentCount]= useState(0)
   
   const fetchImages = async () => {
     const res = await axios.get(process.env.REACT_APP_FETCHIMAGES+`?page=${page}`);
+    setImagesCount(res.data.imagesCount);
+    setImagesCount(currentCount + res.data.imagesCount);
     setFetchStatus(res.status);
     setImages(res.data.images);
     setLength(res.data.images.length);
@@ -107,7 +111,7 @@ const FeedbackItem = () => {
       </div>
  </>
       )}
-       {length === 0 && (
+       {currentCount === imagesCount && (
         <h2
           style={{
             textAlign: "center",
