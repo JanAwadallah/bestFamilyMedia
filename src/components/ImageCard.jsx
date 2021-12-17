@@ -5,7 +5,7 @@ import Upload from "./Upload";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import CloseIcon from "@material-ui/icons/Close";
 import Slider from "./Slider";
-const FeedbackItem = () => {
+const FeedbackItem = ({ setLoading }) => {
   const [images, setImages] = useState([]);
   const [length, setLength] = useState(0);
   const [fetchStatus, setFetchStatus] = useState(null);
@@ -19,6 +19,9 @@ const FeedbackItem = () => {
     setFetchStatus(res.status);
     setImages(res.data);
     setLength(res.data.length);
+     if (res) {
+      setLoading(false);
+    }
   };
   useEffect(() => {
     fetchImages();
