@@ -11,7 +11,7 @@ const App = () => {
       <Header title="Best Family Ever media gallery" />
      {loading && <Loading />}
       <div className="container">
-      <FeedbackItem />
+      <FeedbackItem setLoading={setLoading} />
       
       </div>
     </>
