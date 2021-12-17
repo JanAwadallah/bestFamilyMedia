@@ -45,9 +45,7 @@ const Slider = ({
                   />
                 );
               } else {
-                console.log(
-                  "https://backend.canaofgalilee.oo.gd/images/" + image.filename
-                );
+                
                 return (
                   <Player
                     fluid={false}
