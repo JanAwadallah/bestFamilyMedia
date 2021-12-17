@@ -55,6 +55,7 @@ const FeedbackItem = () => {
         length={length}
         setTempIndex={setTempIndex}
       />
+          <Upload setUploaded={setUploaded} />
 <div
                 style={{
                   display: "flex",
@@ -76,7 +77,7 @@ const FeedbackItem = () => {
                 />
               </div>
       <div>
-        <Upload setUploaded={setUploaded} />
+        
 
         <div className="cardIMG">
           <div className="img-container">
