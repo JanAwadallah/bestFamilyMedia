@@ -75,7 +75,7 @@ header {
   opacity: 0;
   transform: scale(0);
   overflow: hidden;
-  z-index: 999;
+  z-index:10;
 }
 .open {
   width: 100%;
@@ -93,7 +93,7 @@ header {
   opacity: 1;
   transform: scale(1);
   overflow: hidden;
-  z-index: 9;
+  z-index: 10;
 }
 
 .open img {
@@ -147,7 +147,7 @@ header {
   /* top: 50%; */
   /* right: 20px; */
   margin-right: 20px;
-  z-index: 20;
+  z-index: 9;
   font-size: 3rem;
   cursor: pointer;
   user-select: none;
@@ -159,7 +159,7 @@ header {
   /* top: 50%; */
   /* right: 20px; */
   margin-right: 20px;
-  z-index: 20;
+  z-index: 9;
   font-size: 3rem;
   cursor: pointer;
   user-select: none;
