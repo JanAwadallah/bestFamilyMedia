@@ -12,7 +12,6 @@ import Loading from "./Loading";
 
 
 const FeedbackItem = () => {
-  const [loading, setLoading] = useState(true);
   const [images, setImages] = useState([]);
   const [length, setLength] = useState(0);
   const [fetchStatus, setFetchStatus] = useState(null);
