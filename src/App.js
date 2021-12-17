@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import FeedbackItem from "./components/ImageCard";
 import Header from "./components/Header";
-import Loading from "./components/Loading";
+
 
 
 const App = () => {
@@ -9,9 +9,9 @@ const App = () => {
   return (
     <>
       <Header title="Best Family Ever media gallery" />
-     {loading && <Loading />}
+    
       <div className="container">
-      <FeedbackItem setLoading={setLoading} />
+      <FeedbackItem setLoading={setLoading} loading={loading} />
       
       </div>
     </>
