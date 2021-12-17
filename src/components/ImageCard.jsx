@@ -5,11 +5,14 @@ import Upload from "./Upload";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import CloseIcon from "@material-ui/icons/Close";
 import Slider from "./Slider";
+import Loading from "./Loading";
+
 
 
 
 
 const FeedbackItem = () => {
+  const [loading, setLoading] = useState(true);
   const [images, setImages] = useState([]);
   const [length, setLength] = useState(0);
   const [fetchStatus, setFetchStatus] = useState(null);
@@ -40,9 +43,11 @@ const FeedbackItem = () => {
   };
 
   return (   <>
-  {loading ? (<Loading />) 
-  :
-  ( <Slider
+  {loading ? (
+        <Loading />
+      ) : (
+        <>
+  <Slider
         setModel={setModel}
         images={images}
         type={tempType}
@@ -81,8 +86,8 @@ const FeedbackItem = () => {
           </div>
         </div>
       </div>
-)
-}
+ </>
+      )}
     </>
   );
 };
