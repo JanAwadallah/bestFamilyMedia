@@ -27,7 +27,7 @@ const FeedbackItem = () => {
   const fetchImages = async () => {
     const res = await axios.get(process.env.REACT_APP_FETCHIMAGES+`?page=${page}`);
     setImagesCount(res.data.imagesCount);
-    setImagesCount(currentCount + res.data.imagesCount);
+    setCurrentCount(currentCount + res.data.size);
     setFetchStatus(res.status);
     setImages(res.data.images);
     setLength(res.data.images.length);
