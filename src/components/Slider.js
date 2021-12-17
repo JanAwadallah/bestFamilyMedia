@@ -40,10 +40,7 @@ const Slider = ({
               ) {
                 return (
                   <img
-                    src={
-                      "https://backend.canaofgalilee.oo.gd/images/" +
-                      image.filename
-                    }
+                    src={process.env.REACT_APP_LINK + item.filename}
                     alt="new"
                   />
                 );
@@ -59,10 +56,7 @@ const Slider = ({
                     preload=""
                     key={image._id}
                     // playsInline
-                    src={
-                      "https://backend.canaofgalilee.oo.gd/images/" +
-                      image.filename
-                    }
+                    src={process.env.REACT_APP_LINK + item.filename}
                   />
                 );
               }
