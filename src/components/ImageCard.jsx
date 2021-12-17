@@ -25,8 +25,8 @@ const FeedbackItem = () => {
   const fetchImages = async () => {
     const res = await axios.get(process.env.REACT_APP_FETCHIMAGES);
     setFetchStatus(res.status);
-    setImages(res.data);
-    setLength(res.data.length);
+    setImages(res.data.images);
+    setLength(res.data.images.length);
      if (res) {
       setLoading(false);
     }
