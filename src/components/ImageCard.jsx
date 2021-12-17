@@ -33,7 +33,7 @@ const FeedbackItem = () => {
   };
   useEffect(() => {
     fetchImages();
-  }, [uploaded]);
+  }, [uploaded,page]);
   const getImg = (imgSrc, type, index) => {
     setTempSrc(imgSrc);
     setTempType(type);
@@ -120,7 +120,26 @@ const FeedbackItem = () => {
           No more images here! please upload more if you have
         </h2>
       )}
-    </>
+      <div
+                style={{
+                  display: "flex",
+                  position: "relative",
+                  justifyContent: "space-between",
+                  columnSpan: "all",
+                }}
+              >
+                <FaAngleDoubleLeft
+                  className="prevPage"
+                  onClick={() => {
+                    console.log(page);
+                    setPage(page > 1 ? page - 1 : page);
+                  }}
+                />
+                <FaAngleDoubleRight
+                  className="nextPage"
+                  onClick={() => setPage(length > 0 ? page + 1 : page)}
+                />
+              </div>    </>
   );
 };
 
