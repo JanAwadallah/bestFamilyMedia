@@ -40,7 +40,7 @@ const Slider = ({
               ) {
                 return (
                   <img
-                    src={process.env.REACT_APP_LINK + item.filename}
+                    src={process.env.REACT_APP_LINK + image.filename}
                     alt="new"
                   />
                 );
@@ -54,7 +54,7 @@ const Slider = ({
                     preload=""
                     key={image._id}
                     // playsInline
-                    src={process.env.REACT_APP_LINK + item.filename}
+                    src={process.env.REACT_APP_LINK + image.filename}
                   />
                 );
               }
