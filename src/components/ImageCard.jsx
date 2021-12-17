@@ -23,7 +23,7 @@ const FeedbackItem = () => {
   const [page, setPage] = useState(1);
   
   const fetchImages = async () => {
-    const res = await axios.get(process.env.REACT_APP_FETCHIMAGES);
+    const res = await axios.get(process.env.REACT_APP_FETCHIMAGES+`?page=${page}`);
     setFetchStatus(res.status);
     setImages(res.data.images);
     setLength(res.data.images.length);
