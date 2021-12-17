@@ -12,7 +12,7 @@ import { FaAngleDoubleRight, FaAngleDoubleLeft, FaTimes } from "react-icons/fa";
 
 const FeedbackItem = () => {
   const [images, setImages] = useState([]);
-  const [length, setLength] = useState(0);
+  const [length, setLength] = useState(null);
   const [fetchStatus, setFetchStatus] = useState(null);
   const [uploaded, setUploaded] = useState(false);
   const [model, setModel] = useState(false);
@@ -111,7 +111,7 @@ const FeedbackItem = () => {
       </div>
  </>
       )}
-       {currentCount === imagesCount && (
+       {length===0 && (
         <h2
           style={{
             textAlign: "center",
