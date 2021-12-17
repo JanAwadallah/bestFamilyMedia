@@ -5,7 +5,11 @@ import Upload from "./Upload";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import CloseIcon from "@material-ui/icons/Close";
 import Slider from "./Slider";
-const FeedbackItem = ({ setLoading }) => {
+
+
+
+
+const FeedbackItem = () => {
   const [images, setImages] = useState([]);
   const [length, setLength] = useState(0);
   const [fetchStatus, setFetchStatus] = useState(null);
@@ -14,6 +18,8 @@ const FeedbackItem = ({ setLoading }) => {
   const [tempSrc, setTempSrc] = useState("");
   const [tempType, setTempType] = useState("");
   const [tempIndex, setTempIndex] = useState(0);
+  const [loading, setLoading] = useState(true);
+  
   const fetchImages = async () => {
     const res = await axios.get(process.env.REACT_APP_FETCHIMAGES);
     setFetchStatus(res.status);
@@ -34,7 +40,9 @@ const FeedbackItem = ({ setLoading }) => {
   };
 
   return (   <>
-      <Slider
+  {loading ? (<Loading />) 
+  :
+  ( <Slider
         setModel={setModel}
         images={images}
         type={tempType}
@@ -73,6 +81,8 @@ const FeedbackItem = ({ setLoading }) => {
           </div>
         </div>
       </div>
+)
+}
     </>
   );
 };
