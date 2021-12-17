@@ -5,7 +5,7 @@ import Header from "./components/Header";
 
 
 const App = () => {
-  const [loading, setLoading] = useState(true);
+
   return (
     <>
       <Header title="Best Family Ever media gallery" />
