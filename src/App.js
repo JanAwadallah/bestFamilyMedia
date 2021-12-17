@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import FeedbackItem from "./components/ImageCard";
 import Header from "./components/Header";
+import Loading from "./components/Loading";
+
 
 const App = () => {
   const [loading, setLoading] = useState(true);
