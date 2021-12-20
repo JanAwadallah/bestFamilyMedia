@@ -111,7 +111,7 @@ const FeedbackItem = () => {
       )}
       <div className={length === imagesCount ? "no-more" : "load-more"}>
         <h3
-          style={{ fontSize: 30, cursor: "pointer", marginBottom: 10; }}
+          style={{ fontSize: 30, cursor: "pointer", marginBottom: 10 }}
           onClick={() => {
             setPage(length < imagesCount ? page + 1 : page);
             setLoading(true);
