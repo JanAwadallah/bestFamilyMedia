@@ -12,7 +12,7 @@ import { FaAngleDoubleRight, FaAngleDoubleLeft, FaTimes } from "react-icons/fa";
 
 const FeedbackItem = () => {
   const [images, setImages] = useState([]);
-  const [length, setLength] = useState(null);
+  const [length, setLength] = useState(0);
   const [fetchStatus, setFetchStatus] = useState(null);
   const [uploaded, setUploaded] = useState(false);
   const [model, setModel] = useState(false);
@@ -27,10 +27,12 @@ const FeedbackItem = () => {
   const fetchImages = async () => {
     const res = await axios.get(process.env.REACT_APP_FETCHIMAGES+`?page=${page}`);
     setImagesCount(res.data.imagesCount);
-    setCurrentCount(currentCount + res.data.size);
+    setCurrentCount(
+      (prevCurrentCount) => prevCurrentCount + res.data.images.length
+    );
     setFetchStatus(res.status);
-    setImages(res.data.images);
-    setLength(res.data.images.length);
+    setImages([...images, ...res.data.images]);
+    setLength((prevLength) => prevLength + res.data.images.length);
      if (res) {
       setLoading(false);
     }
@@ -38,6 +40,7 @@ const FeedbackItem = () => {
   useEffect(() => {
     fetchImages();
   }, [uploaded,page]);
+  
   const getImg = (imgSrc, type, index) => {
     setTempSrc(imgSrc);
     setTempType(type);
@@ -60,26 +63,7 @@ const FeedbackItem = () => {
         setTempIndex={setTempIndex}
       />
           <Upload setUploaded={setUploaded} />
-<div
-                style={{
-                  display: "flex",
-                  position: "relative",
-                  justifyContent: "space-between",
-                  columnSpan: "all",
-                }}
-              >
-                <FaAngleDoubleLeft
-                  className="prevPage"
-                  onClick={() => {
-                    console.log(page);
-                    setPage(page > 1 ? page - 1 : page);
-                  }}
-                />
-                <FaAngleDoubleRight
-                  className="nextPage"
-                  onClick={() => setPage(length > 0 ? page + 1 : page)}
-                />
-              </div>
+
       <div>
         
 
@@ -89,7 +73,7 @@ const FeedbackItem = () => {
               images.map((item, index) => {
                 return (
                   <LazyLoadImage
-                    key={item._id}
+                    key={index}
                     style={{
                       width: "100%",
                     }}
@@ -111,7 +95,7 @@ const FeedbackItem = () => {
       </div>
  </>
       )}
-       {length===0 && (
+     {length === imagesCount && (
         <h2
           style={{
             textAlign: "center",
@@ -125,26 +109,22 @@ const FeedbackItem = () => {
           No more images here! please upload more if you have
         </h2>
       )}
-      <div
-                style={{
-                  display: "flex",
-                  position: "relative",
-                  justifyContent: "space-between",
-                  columnSpan: "all",
-                }}
-              >
-                <FaAngleDoubleLeft
-                  className="prevPage"
-                  onClick={() => {
-                    console.log(page);
-                    setPage(page > 1 ? page - 1 : page);
-                  }}
-                />
-                <FaAngleDoubleRight
-                  className="nextPage"
-                  onClick={() => setPage(length > 0 ? page + 1 : page)}
-                />
-              </div>    </>
+      <div className={length === imagesCount ? "no-more" : "load-more"}>
+        <h3
+          style={{ fontSize: 30, cursor: "pointer", margin: 0 }}
+          onClick={() => {
+            setPage(length < imagesCount ? page + 1 : page);
+          }}
+        >
+          Load More
+        </h3>
+        <FaAngleDoubleRight
+          className="nextPage"
+          onClick={() => {
+            setPage(length < imagesCount ? page + 1 : page);
+          }}
+        />
+      </div>   </>
   );
 };
 
