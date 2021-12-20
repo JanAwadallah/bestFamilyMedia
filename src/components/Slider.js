@@ -40,6 +40,8 @@ const Slider = ({
               ) {
                 return (
                   <img
+                  key={index}
+              className="slider-img"
                     src={process.env.REACT_APP_LINK + image.filename}
                     alt="new"
                   />
