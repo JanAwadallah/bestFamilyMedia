@@ -114,6 +114,7 @@ const FeedbackItem = () => {
           style={{ fontSize: 30, cursor: "pointer", margin: 0 }}
           onClick={() => {
             setPage(length < imagesCount ? page + 1 : page);
+            setLoading(true);
           }}
         >
           Load More
@@ -122,6 +123,7 @@ const FeedbackItem = () => {
           className="nextPage"
           onClick={() => {
             setPage(length < imagesCount ? page + 1 : page);
+            setLoading(true);
           }}
         />
       </div>   </>
