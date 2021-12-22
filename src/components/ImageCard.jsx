@@ -129,7 +129,7 @@ const FeedbackItem = () => {
           Load More
         </h3>
         <FaAngleDoubleRight
-          className="nextPage"
+          className="load-more-icon"
           onClick={() => {
             setPage(length < imagesCount ? page + 1 : page);
             setLoading(true);
