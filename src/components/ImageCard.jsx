@@ -32,7 +32,7 @@ const FeedbackItem = () => {
       (prevCurrentCount) => prevCurrentCount + res.data.images.length
     );
     setFetchStatus(res.status);
-    setImages([...images, ...res.data.images]);
+    setImages([ ...res.data.images, ...images]);
     setLength((prevLength) => prevLength + res.data.images.length);
      if (res) {
       setLoading(false);
