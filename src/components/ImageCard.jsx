@@ -7,6 +7,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import Slider from "./Slider";
 import Loading from "./Loading";
 import { FaAngleDoubleRight, FaAngleDoubleLeft, FaTimes } from "react-icons/fa";
+import { IKImage, IKContext, IKUpload } from 'imagekitio-react'
 
 
 
@@ -69,16 +70,21 @@ const FeedbackItem = () => {
 
         <div className="cardIMG">
           <div className="img-container">
+            <IKContext urlEndpoint="https://ik.imagekit.io/janawadallah/">
             {images &&
               images.map((item, index) => {
                 return (
-                  <LazyLoadImage
+                  
+
+                  <IKImage 
                     key={index}
+                    loading="lazy"
+                    lqip={{ active: true }}
                     style={{
                       width: "100%",
                     }}
                     effect="black-and-white"
-                    src={process.env.REACT_APP_LINK + item.filename}
+                    path={item.filename}
                     alt="new"
                     onClick={() =>
                       getImg(
@@ -88,8 +94,10 @@ const FeedbackItem = () => {
                       )
                     }
                   />
+                
                 );
               })}
+              </IKContext>
           </div>
         </div>
       </div>
