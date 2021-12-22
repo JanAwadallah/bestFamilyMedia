@@ -150,6 +150,18 @@ header {
   background-color: rgba(0, 0, 0, 0.2);
   opacity: 0.5;
 }
+.load-more-icon {
+  /* position: fixed; */
+  /* top: 50%; */
+  /* right: 20px; */
+  margin-right: 20px;
+  z-index: 9;
+  font-size: 3rem;
+  cursor: pointer;
+  user-select: none;
+  background-color: rgba(0, 0, 0, 0.2);
+  opacity: 0.5;
+}
 .prevPage {
   /* position: fixed; */
   /* top: 50%; */
