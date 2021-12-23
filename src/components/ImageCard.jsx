@@ -8,6 +8,7 @@ import Slider from "./Slider";
 import Loading from "./Loading";
 import { FaAngleDoubleRight, FaAngleDoubleLeft, FaTimes } from "react-icons/fa";
 import { IKImage, IKContext, IKUpload } from 'imagekitio-react'
+import { motion, AnimatePresence } from "framer-motion";
 
 
 
@@ -89,13 +90,18 @@ const FeedbackItem = () => {
         />
       </div>
           <div className="img-container">
+            <AnimatePresence>
             <IKContext urlEndpoint="https://ik.imagekit.io/janawadallah/">
             {images &&
               images.map((item, index) => {
                 return (
                   
-
-                  <IKImage 
+                  <motion.div
+                          key={index}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                        >
+                          <IKImage 
                     key={index}
                     loading="lazy"
                     lqip={{ active: true }}
@@ -113,10 +119,12 @@ const FeedbackItem = () => {
                       )
                     }
                   />
+              </motion.div>
                 
                 );
               })}
               </IKContext>
+            </AnimatePresence>
           </div>
         </div>
       </div>
