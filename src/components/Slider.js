@@ -40,8 +40,10 @@ const Slider = ({
                 ["image/jpg", "image/jpeg", "image/png"].includes(image.type)
               ) {
                 return (
-                  <img
-                  key={index}
+                  <IKImage 
+                    key={index}
+                    loading="lazy"
+                    lqip={{ active: true }}
               className="slider-img"
                     src={process.env.REACT_APP_LINK + image.filename}
                     alt="new"
