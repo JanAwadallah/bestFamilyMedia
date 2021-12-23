@@ -44,7 +44,8 @@ const Slider = ({
               ) {
                 return (
                   <AnimatePresence key={index}>
-                  <motion.IKImage 
+                  <motion.div>
+                  <IKImage 
                     key={index}
                     loading="lazy"
                     lqip={{ active: true }}
@@ -52,6 +53,7 @@ const Slider = ({
                     src={process.env.REACT_APP_LINK + image.filename}
                     alt="new"
                   />
+                      </motion.div>
                  </AnimatePresence>
             );
               } else {
