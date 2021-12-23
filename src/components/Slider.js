@@ -33,6 +33,7 @@ const Slider = ({
         <div>
           <FaAngleDoubleRight className="next" onClick={nextHandler} />
           <FaAngleDoubleLeft className="prev" onClick={prevHandler} />
+            <IKContext urlEndpoint="https://ik.imagekit.io/janawadallah/">
           {images.map((image, index) => {
             if (index === current) {
               if (
@@ -62,6 +63,7 @@ const Slider = ({
               }
             }
           })}
+          </IKContext>
           <FaTimes onClick={closehandler} className="close" />
         </div>
       </div>
