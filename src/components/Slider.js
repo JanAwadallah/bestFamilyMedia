@@ -2,6 +2,8 @@ import zIndex from "@material-ui/core/styles/zIndex";
 import React, { useState, useEffect } from "react";
 import { FaAngleDoubleRight, FaAngleDoubleLeft, FaTimes } from "react-icons/fa";
 import { Player } from "video-react";
+import { IKImage, IKContext, IKUpload } from 'imagekitio-react'
+
 
 const Slider = ({
   images,
