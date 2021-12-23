@@ -70,6 +70,24 @@ const FeedbackItem = () => {
         
 
         <div className="cardIMG">
+           <div className={length === imagesCount ? "no-more" : "load-more"}>
+        <h3
+          style={{ fontSize: 30, cursor: "pointer", marginBottom: 10 }}
+          onClick={() => {
+            setPage(length < imagesCount ? page + 1 : page);
+            setLoading(true);
+          }}
+        >
+          Load More
+        </h3>
+        <FaAngleDoubleRight
+          className="load-more-icon"
+          onClick={() => {
+            setPage(length < imagesCount ? page + 1 : page);
+            setLoading(true);
+          }}
+        />
+      </div>
           <div className="img-container">
             <IKContext urlEndpoint="https://ik.imagekit.io/janawadallah/">
             {images &&
