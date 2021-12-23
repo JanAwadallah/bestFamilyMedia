@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { FaAngleDoubleRight, FaAngleDoubleLeft, FaTimes } from "react-icons/fa";
 import { Player } from "video-react";
 import { IKImage, IKContext, IKUpload } from 'imagekitio-react'
+import { motion, AnimatePresence } from "framer-motion";
 
 
 const Slider = ({
@@ -42,7 +43,8 @@ const Slider = ({
                 ["image/jpg", "image/jpeg", "image/png"].includes(image.type)
               ) {
                 return (
-                  <IKImage 
+                  <AnimatePresence key={index}>
+                  <motion.IKImage 
                     key={index}
                     loading="lazy"
                     lqip={{ active: true }}
@@ -50,7 +52,8 @@ const Slider = ({
                     src={process.env.REACT_APP_LINK + image.filename}
                     alt="new"
                   />
-                );
+                 </AnimatePresence>
+            );
               } else {
                 
                 return (
